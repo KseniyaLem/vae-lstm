@@ -4,7 +4,8 @@ https://www.oxford-man.ox.ac.uk/wp-content/uploads/2020/06/ANOMALY-DETECTION-FOR
 
 
 Proposal:
-[Proposal.pdf](https://github.com/KseniyaLem/vae-lstm/files/6398842/Proposal.pdf)
+[proposal (2).pdf](https://github.com/KseniyaLem/vae-lstm/files/6404273/proposal.2.pdf)
+
 
 
 Project goals: 
