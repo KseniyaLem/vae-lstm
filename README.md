@@ -17,3 +17,6 @@ Project goals:
 3. Change the model: simulate a complex VAE, then a complex LSTM, check what is best for detecting anomalies. 
 
 4. To train the VAE model, we generate rolling windows from the training data. The LSTM model operates on the VAE embeddings of a sequence of k non-overlapping windows. How much will the model change if the windows are the same for both models? 
+
+
+![Scheme](https://user-images.githubusercontent.com/66911275/118230764-d49bb380-b496-11eb-803b-c8cd31fabd9d.JPG)
