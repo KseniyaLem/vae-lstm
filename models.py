@@ -50,7 +50,7 @@ class VAEmodel(nn.Module):
     #   norm 1 of standard deviation of the sample-wise encoder prediction
         std_dev_norm = torch.mean(gamma, axis=0)
 
-        weighted_reconstruction_error_dataset = torch.sum(torch.square(input - output), [1, 2])       #self.original_siglal == input?? self.decoded == output
+        weighted_reconstruction_error_dataset = torch.sum(torch.square(input - output), [1, 2])       #self.original_siglal == input, self.decoded == output
         weighted_reconstruction_error_dataset = torch.mean(weighted_reconstruction_error_dataset)
         weighted_reconstruction_error_dataset = weighted_reconstruction_error_dataset / (2 * self.sigma2)
 
@@ -71,15 +71,6 @@ class VAEmodel(nn.Module):
         eps = torch.randn_like(std)   
         z = eps.mul(std).add(mu)
         return  z
-    
-    # DEL
-    # def loss_function(self, input, output, mu, gamma, batch_size): 
-    #     #BCE = F.binary_cross_entropy(output, input, reduction='sum')
-    #     loss = nn.MSELoss()          
-    #     BCE = loss(output, input)
-        
-    #     KLD = -0.5 * torch.sum(1 + gamma - mu.pow(2) - gamma.exp())  
-    #     return BCE + KLD
         
     def encoder(self, x, lstm=False): 
 
@@ -140,8 +131,7 @@ class VAEmodel(nn.Module):
         return x
     
     def build_model(self):
-
-        # SAME: padding = 1, VALID: padding = 0                
+              
         #in_channels, out_channels, kernel_size, stride, padding
         self.conv_1 = nn.Conv1d(1, 32, 3, stride=2, padding=1)   
         self.conv_2 = nn.Conv1d(32, 64, 3, stride=2, padding=1)
